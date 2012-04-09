@@ -53,7 +53,7 @@ def main(file_name, term_div, term_def_div):
 		if guess == "remove":
 			del copy_dict[term]
 		else:
-		    answer_text = "Answer:\n" + str(copy_dict[term]) + '\n'
+		    answer_text = "Answer:\n" + str(display[display2]) + '\n'
             # when correct remove the card from the deck
 		    answer = raw_input(answer_text + "Were you correct?\n")
 		    print "Our guess was", guess_if_correct(guess, display[display2])
