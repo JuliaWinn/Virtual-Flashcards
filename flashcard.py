@@ -83,20 +83,24 @@ def guess_if_correct(guess, answer):
     
     if (((total_guessed*1.0)/ans_size) > 0.5):
         return "yes"
+    elif (0.39 < ((total_guessed*1.0)/ans_size) <= 0.5):
+        return "maybe"
     else:
         return "no"		
 
 if __name__ == "__main__":
-	file_name = sys.argv[1]
-	if len(sys.argv) == 4:
-	    term_divider = sys.argv[2]
-	    term_definition_divider = sys.argv[3]
-	    main(file_name, term_divider, term_definition_divider)
-	
-	elif len(sys.argv) == 3:
-	    term_divider = None
-	    term_definition_divider = sys.argv[2]
-	    main(file_name, term_divider, term_definition_divider)
-	
-	else:
-	    print "Usage: python flashcard.py document.txt ['term divider'] 'term definition divider'"
+    if len(sys.argv) < 2:
+        print "Usage: python flashcard.py document.txt ['term divider'] 'term definition divider'"
+    else:
+        file_name = sys.argv[1]
+        if len(sys.argv) == 4:
+            term_divider = sys.argv[2]
+            term_definition_divider = sys.argv[3]
+            main(file_name, term_divider, term_definition_divider)
+    
+        elif len(sys.argv) == 3:
+            term_divider = None
+            term_definition_divider = sys.argv[2]
+            main(file_name, term_divider, term_definition_divider)
+        else:
+            print "Usage: python flashcard.py document.txt ['term divider'] 'term definition divider'"
